@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tejal's Professional Portfolio</title>
+    <style>
+      /* Reset and base */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #333;
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+      a {
+        color: #0077b6;
+        text-decoration: none;
+        transition: color 0.3s ease, transform 0.2s ease;
+      }
+      a:hover,
+      a:focus {
+        color: #023e8a;
+        transform: translateY(-1px);
+        outline: none;
+      }
+      /* Container */
+      .container {
+        max-width: 900px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+      }
+      .container:hover {
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        transform: translateY(-5px);
+      }
+      /* Header */
+      header {
+        text-align: center;
+        margin-bottom: 30px;
+        background: linear-gradient(135deg, #0077b6, #00b4d8);
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 0 4px 15px rgba(0, 119, 182, 0.3);
+      }
+      header h1 {
+        font-size: 2.8rem;
+        margin-bottom: 5px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      header p {
+        font-size: 1rem;
+        opacity: 0.9;
+      }
+      /* Contact Info */
+      .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 40px;
+        font-size: 0.9rem;
+        color: #555;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        padding: 15px;
+        border-radius: 10px;
+      }
+      .contact-info a {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #e3f2fd;
+        padding: 5px 10px;
+        border-radius: 20px;
+        transition: background 0.3s ease;
+      }
+      .contact-info a:hover {
+        background: #bbdefb;
+      }
+      /* Section Titles */
+      h2 {
+        border-bottom: 3px solid transparent;
+        background: linear-gradient(135deg, #0077b6, #00b4d8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        padding-bottom: 6px;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        position: relative;
+      }
+      h2::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(135deg, #0077b6, #00b4d8);
+        border-radius: 2px;
+      }
+      /* Professional Summary */
+      .summary {
+        font-size: 1rem;
+        margin-bottom: 40px;
+        white-space: pre-line;
+        background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+        padding: 15px;
+        border-radius: 10px;
+        border-left: 5px solid #ffc107;
+      }
+      /* Core Skills */
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px 30px;
+        margin-bottom: 40px;
+      }
+      .skills-list div {
+        flex: 1 1 250px;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .skills-list div:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+      .skills-list div:nth-child(1) {
+        border-top: 4px solid #28a745;
+      } /* Programming: Green */
+      .skills-list div:nth-child(2) {
+        border-top: 4px solid #17a2b8;
+      } /* Soft: Teal */
+      .skills-list div:nth-child(3) {
+        border-top: 4px solid #fd7e14;
+      } /* Software: Orange */
+      .skills-list div:nth-child(4) {
+        border-top: 4px solid #6f42c1;
+      } /* Technical: Purple */
+      .skills-list ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .skills-list li {
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 18px;
+        transition: color 0.3s ease;
+      }
+      .skills-list li:hover {
+        color: #0077b6;
+      }
+      .skills-list li::before {
+        content: "✦";
+        position: absolute;
+        left: 0;
+        color: #0077b6;
+        font-weight: bold;
+        animation: sparkle 2s infinite;
+      }
+      @keyframes sparkle {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+      /* Education */
+      .education-item {
+        margin-bottom: 25px;
+        background: linear-gradient(135deg, #d1ecf1, #bee5eb);
+        padding: 15px;
+        border-radius: 10px;
+        border-left: 5px solid #17a2b8;
+        transition: background 0.3s ease;
+      }
+      .education-item:hover {
+        background: linear-gradient(135deg, #b8daff, #a3d7ff);
+      }
+      .education-item h3 {
+        font-weight: 600;
+        color: #0c5460;
+      }
+      .education-item p {
+        font-size: 0.95rem;
+        color: #555;
+        margin: 4px 0 6px 0;
+      }
+      /* Projects */
+      .project {
+        margin-bottom: 30px;
+        padding: 15px 20px;
+        border-left: 5px solid #28a745;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .project::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(40, 167, 69, 0.1),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .project:hover {
+        background: linear-gradient(135deg, #d4edda, #c3e6cb);
+        transform: translateX(10px);
+      }
+      .project:hover::before {
+        opacity: 1;
+      }
+      .project h4 {
+        margin-bottom: 6px;
+        color: #155724;
+      }
+      .project .tech-stack {
+        font-style: italic;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        color: #6c757d;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 5px 10px;
+        border-radius: 15px;
+        display: inline-block;
+      }
+      .project ul {
+        list-style: disc inside;
+        color: #333;
+        padding-left: 10px;
+      }
+      /* Certifications */
+      .certifications ul {
+        list-style: none;
+        padding-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .certifications li {
+        margin-bottom: 10px;
+        padding: 10px 15px;
+        background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+        border-radius: 20px;
+        border-left: 4px solid #dc3545;
+        transition: all 0.3s ease;
+        flex: 1 1 200px;
+        text-align: center;
+        position: relative;
+      }
+      .certifications li:hover {
+        background: linear-gradient(135deg, #f1aeb5, #e2b1c0);
+        transform: scale(1.05);
+      }
+      .certifications li::before {
+        content: "🏆";
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+      }
+      .certifications li span {
+        display: block;
+        margin-left: 25px;
+      }
+      /* Responsive */
+      @media (max-width: 600px) {
+        .skills-list {
+          flex-direction: column;
+        }
+        .contact-info {
+          flex-direction: column;
+          font-size: 0.95rem;
+        }
+        .container {
+          padding: 25px 20px;
+        }
+        header h1 {
+          font-size: 2.2rem;
+        }
+        .certifications ul {
+          flex-direction: column;
+        }
+        .certifications li {
+          flex: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container" role="main">
+      <header>
+        <h1>Tejal Jagdish Raut</h1>
+        <p>Software Developer | Frontend & Backend | Problem Solver</p>
+      </header>
+
+      <section class="contact-info" aria-label="Contact Information">
+        <div>
+          Email:
+          <a href="mailto:tejalraut448@gmail.com" aria-label="Email Tejal"
+            >tejalraut448@gmail.com</a
+          >
+        </div>
+        <div>
+          Phone:
+          <a href="tel:+918459446309" aria-label="Call Tejal"
+            >+91 84594 46309</a
+          >
+        </div>
+        <div>
+          <a
+            href="https://www.linkedin.com/in/tejal-raut-7a7b1134a"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn Profile"
+            >LinkedIn</a
+          >
+        </div>
+        <div>
+          <a
+            href="https://github.com/tejalraut0411"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub Profile"
+            >GitHub</a
+          >
+        </div>
+        <div>At. Post Murha Bk.,Tq. Anjangaon Surji and Dist. Amravati</div>
+      </section>
+
+      <section aria-labelledby="summary-title">
+        <h2 id="summary-title">Professional Summary</h2>
+        <p class="summary">
+          Practiced in C++, Java, Python, Basic Skilled in designing,
+          developing, and optimizing scalable applications with skilfulness in.
+          Adept at building responsive, secure, and performance solutions while
+          collaborating with cross-functional teams to deliver projects on time.
+        </p>
+      </section>
+
+      <section aria-labelledby="skills-title">
+        <h2 id="skills-title">Core Skills</h2>
+        <div class="skills-list">
+          <div>
+            <strong>Programming Languages:</strong>
+            <ul>
+              <li>Java</li>
+              <li>Python</li>
+              <li>JavaScript</li>
+              <li>TypeScript</li>
+              <li>C++</li>
+            </ul>
+          </div>
+          <div>
+            <strong>Soft Skills:</strong>
+            <ul>
+              <li>Problem-Solving</li>
+              <li>Code Optimization</li>
+              <li>System Design</li>
+              <li>UI, UX</li>
+            </ul>
+          </div>
+          <div>
+            <strong>Software:</strong>
+            <ul>
+              <li>Excel</li>
+              <li>PowerPoint</li>
+              <li>Word</li>
+            </ul>
+          </div>
+          <div>
+            <strong>Technical Skills:</strong>
+            <ul>
+              <li>Frontend Developer</li>
+              <li>Database Administration</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+        <div class="education-item">
+          <h3>Post-Graduation (PG)</h3>
+          <p><strong>University:</strong> SGBAU</p>
+          <p>
+            <strong>College:</strong> P. R. Pote Patil College of Engineering
+            and Management, Amravati, Maharashtra | 2026
+          </p>
+          <p><strong>Relevant Courses:</strong> Microsoft Azure Webinar</p>
+        </div>
+        <div class="education-item">
+          <h3>Graduation (UG)</h3>
+          <p><strong>University:</strong> SGBAU</p>
+          <p><strong>College:</strong> SMT. Radhabai Sarda College</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="projects-title">
+        <h2 id="projects-title">Projects</h2>
+        <article class="project" tabindex="0">
+          <h4>
+            KRISHIPRADHNYA – Precision Agriculture & Farmer Support Platform
+          </h4>
+          <p class="tech-stack">
+            Tech Stack: HTML, CSS, JavaScript, JSP/Servlets, MySQL
+          </p>
+          <ul>
+            <li>
+              Designed a web platform providing soil-specific crop
+              recommendations and maintenance practices for improved yield.
+            </li>
+            <li>
+              Promoted sustainable agriculture by recommending natural
+              pesticides and reducing chemical usage.
+            </li>
+            <li>
+              Implemented responsive, user-friendly UI to enhance accessibility
+              for farmers.
+            </li>
+          </ul>
+        </article>
+        <article class="project" tabindex="0">
+          <h4>QUICKFIX HOMECARE (ongoing) – Real-time Service Marketplace</h4>
+          <p class="tech-stack">
+            Tech Stack: React.js, Node.js, Express, MongoDB
+          </p>
+          <ul>
+            <li>
+              Developed a fully responsive real-time platform connecting users
+              with service providers (electricians, plumbers, etc.).
+            </li>
+            <li>
+              Built separate user and service provider portals with role-based
+              authentication and live availability tracking.
+            </li>
+            <li>
+              Implemented location-based filtering, rating system, and animated
+              UI with enhanced UX.
+            </li>
+            <li>Improved response time by 20%.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section aria-labelledby="certifications-title" class="certifications">
+        <h2 id="certifications-title">Certifications</h2>
+        <ul>
+          <li><span>Android Developer Virtual Internship – Google</span></li>
+          <li><span>Enhancing Soft Skills and Personality – NPTEL</span></li>
+          <li><span>AI-ML Virtual Internship – Google</span></li>
+          <li><span>Global AI Bootcamp Amravati</span></li>
+          <li>
+            <span>Generative AI Course Completion Certificate – LinkedIn</span>
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
